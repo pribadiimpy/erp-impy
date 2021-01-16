@@ -1,4 +1,4 @@
-jasa Jasa
+Data Jasa
 <hr>
 <form action="jasa.php?controller=form" method="post">
 	<table width="100%" border="1" cellpadding="3" cellspacing="0">
