@@ -27,10 +27,10 @@ Data Lokasi
 	Aksi
 	<select name="action">
 		<option value="">-PILIH-</option>
-		<option value="tambah">Tambah Jasa</option>
-		<option value="salin">Salin Jasa</option>
-		<option value="ubah">Ubah Jasa</option>
-		<option value="hapus">Hapus Jasa</option>
+		<option value="tambah">Tambah Lokasi</option>
+		<option value="salin">Salin Lokasi</option>
+		<option value="ubah">Ubah Lokasi</option>
+		<option value="hapus">Hapus Lokasi</option>
 	</select>
 	<button type="submit" name="submit" value="pilih">Pilih</button>
 </form>

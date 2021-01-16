@@ -1,18 +1,18 @@
-Data Lantai
+Data Ruangan
 <hr>
-<form action="lantai.php?controller=form" method="post">
+<form action="ruangan.php?controller=form" method="post">
 	<table width="100%" border="1" cellpadding="3" cellspacing="0">
 		<tr>
 			<th width="1">Pilih</th>
 			<th width="1">Id</th>
-			<th>Lantai</th>
+			<th>Ruangan</th>
 		</tr>
 		<?php
 		$where = '';
 		if (!empty($nama)) {
 			$where = " AND nama LIKE '%{$nama}%'";
 		}
-		$sql = "SELECT id, nama FROM lantai WHERE 1 = 1 {$where}";
+		$sql = "SELECT id, nama FROM ruangan WHERE 1 = 1 {$where}";
 		$rs = $db->query($sql);
 		?>
 		<?php while ($row = $rs->fetch_object()) { ?>
@@ -27,10 +27,10 @@ Data Lantai
 	Aksi
 	<select name="action">
 		<option value="">-PILIH-</option>
-		<option value="tambah">Tambah Lantai</option>
-		<option value="salin">Salin Lantai</option>
-		<option value="ubah">Ubah Lantai</option>
-		<option value="hapus">Hapus Lantai</option>
+		<option value="tambah">Tambah Ruangan</option>
+		<option value="salin">Salin Ruangan</option>
+		<option value="ubah">Ubah Ruangan</option>
+		<option value="hapus">Hapus Ruangan</option>
 	</select>
 	<button type="submit" name="submit" value="pilih">Pilih</button>
 </form>

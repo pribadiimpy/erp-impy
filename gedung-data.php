@@ -27,10 +27,10 @@ Data Gedung
 	Aksi
 	<select name="action">
 		<option value="">-PILIH-</option>
-		<option value="tambah">Tambah Jasa</option>
-		<option value="salin">Salin Jasa</option>
-		<option value="ubah">Ubah Jasa</option>
-		<option value="hapus">Hapus Jasa</option>
+		<option value="tambah">Tambah Gedung</option>
+		<option value="salin">Salin Gedung</option>
+		<option value="ubah">Ubah Gedung</option>
+		<option value="hapus">Hapus Gedung</option>
 	</select>
 	<button type="submit" name="submit" value="pilih">Pilih</button>
 </form>
