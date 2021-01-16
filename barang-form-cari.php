@@ -1,6 +1,6 @@
 <h2>Master Barang</h2>
 <hr>
-Pencarian
+Pencarian Barang
 <hr>
 <form action="barang.php?controller=data" method="post">
 	<table>

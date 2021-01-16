@@ -1,8 +1,8 @@
-<h2>Master Jasa</h2>
+<h2>Master Lokasi</h2>
 <hr>
-Pencarian Jasa
+Pencarian Lokasi
 <hr>
-<form action="jasa.php?controller=data" method="post">
+<form action="lokasi.php?controller=data" method="post">
 	<table>
 		<tr>
 			<td>Nama</td>
