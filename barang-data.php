@@ -18,13 +18,16 @@ Data Barang
 		$sql =
 		"
 		SELECT
-		id,
-		nama,
-		'' AS kategori,
-		'' AS satuan,
-		'' AS merek
+		t1.id,
+		t1.nama,
+		t2.nama AS kategori,
+		t3.nama AS satuan,
+		t4.nama AS merek
 		FROM
-		barang
+		barang AS t1
+		LEFT JOIN kategori AS t2 ON t2.id = t1.id_kategori
+		LEFT JOIN satuan AS t3 ON t3.id = t1.id_satuan
+		LEFT JOIN merek AS t4 ON t4.id = t1.id_merek
 		WHERE
 		1 = 1
 		{$where}
