@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 17, 2021 at 03:20 AM
+-- Generation Time: Jan 17, 2021 at 03:29 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -173,6 +173,17 @@ INSERT INTO `lokasi` (`id`, `nama`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `merek`
+--
+
+CREATE TABLE `merek` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pegawai`
 --
 
@@ -192,20 +203,31 @@ INSERT INTO `pegawai` (`id`, `nama`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pelanggan`
+-- Table structure for table `pembeli`
 --
 
-CREATE TABLE `pelanggan` (
+CREATE TABLE `pembeli` (
   `id` int(11) NOT NULL,
   `nama` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `pelanggan`
+-- Dumping data for table `pembeli`
 --
 
-INSERT INTO `pelanggan` (`id`, `nama`) VALUES
+INSERT INTO `pembeli` (`id`, `nama`) VALUES
 (1, 'purnama');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `penjual`
+--
+
+CREATE TABLE `penjual` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -306,15 +328,27 @@ ALTER TABLE `lokasi`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `merek`
+--
+ALTER TABLE `merek`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `pegawai`
 --
 ALTER TABLE `pegawai`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pelanggan`
+-- Indexes for table `pembeli`
 --
-ALTER TABLE `pelanggan`
+ALTER TABLE `pembeli`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `penjual`
+--
+ALTER TABLE `penjual`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -382,16 +416,28 @@ ALTER TABLE `lokasi`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `merek`
+--
+ALTER TABLE `merek`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `pegawai`
 --
 ALTER TABLE `pegawai`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `pelanggan`
+-- AUTO_INCREMENT for table `pembeli`
 --
-ALTER TABLE `pelanggan`
+ALTER TABLE `pembeli`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `penjual`
+--
+ALTER TABLE `penjual`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `ruangan`
