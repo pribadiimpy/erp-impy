@@ -1,10 +1,12 @@
-<?php 
+<?php
 
 require 'db.php';
 
 $controller = isset($_REQUEST['controller']) ? $_REQUEST['controller'] : '';
 $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
 $submit = isset($_REQUEST['submit']) ? $_REQUEST['submit'] : '';
+
+include 'menu_atas.php';
 
 if ($controller == 'form') {
 	$id = isset($_POST['id']) ? $_POST['id'] : '';
@@ -15,7 +17,7 @@ if ($controller == 'form') {
 	} else {
 		header('location: barang.php');
 	}
-} else if ($controller == 'aksi') {	
+} else if ($controller == 'aksi') {
 	$id = isset($_POST['id']) ? $_POST['id'] : '';
 	$nama = isset($_POST['nama']) ? $_POST['nama'] : '';
 	include 'barang-aksi.php';

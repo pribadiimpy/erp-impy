@@ -6,13 +6,29 @@ Data Barang
 			<th width="1">Pilih</th>
 			<th width="1">Id</th>
 			<th>Barang</th>
+			<th>Kategori</th>
+			<th>Satuan</th>
+			<th>Merek</th>
 		</tr>
 		<?php
 		$where = '';
 		if (!empty($nama)) {
 			$where = " AND nama LIKE '%{$nama}%'";
 		}
-		$sql = "SELECT id, nama FROM barang WHERE 1 = 1 {$where}";
+		$sql =
+		"
+		SELECT
+		id,
+		nama,
+		'' AS kategori,
+		'' AS satuan,
+		'' AS merek
+		FROM
+		barang
+		WHERE
+		1 = 1
+		{$where}
+		";
 		$rs = $db->query($sql);
 		?>
 		<?php while ($row = $rs->fetch_object()) { ?>
@@ -20,6 +36,9 @@ Data Barang
 				<td><input type="radio" name="id" value="<?=$row->id?>"></td>
 				<td><?=$row->id?></td>
 				<td><?=$row->nama?></td>
+				<td><?=$row->kategori?></td>
+				<td><?=$row->satuan?></td>
+				<td><?=$row->merek?></td>
 			</tr>
 		<?php } ?>
 	</table>
