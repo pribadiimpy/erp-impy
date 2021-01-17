@@ -89,6 +89,22 @@ Form <?=ucfirst($action)?> Barang
 				<?php } else { ?>
 					<select name="id_satuan">
 						<option value="0">-PILIH-</option>
+						<?php
+						$sqlSatuan =
+						"
+						SELECT
+						id,
+						nama
+						FROM
+						satuan
+						ORDER BY
+						nama
+						";
+						$rsSatuan = $db->query($sqlSatuan);
+						?>
+						<?php while ($rowSatuan = $rsSatuan->fetch_object()) { ?>
+							<option value="<?=$rowSatuan->id?>"><?=$rowSatuan->nama?></option>
+						<?php } ?>
 					</select>
 				<?php } ?>
 			</td>
@@ -99,10 +115,26 @@ Form <?=ucfirst($action)?> Barang
 			<td>
 				<?php if ($action == 'hapus') { ?>
 					<?=$nama?>
-					<input type="hidden" name="id_satuan" value="<?=$id_satuan?>">
+					<input type="hidden" name="id_merek" value="<?=$id_merek?>">
 				<?php } else { ?>
-					<select name="id_satuan">
+					<select name="id_merek">
 						<option value="0">-PILIH-</option>
+						<?php
+						$sqlMerek =
+						"
+						SELECT
+						id,
+						nama
+						FROM
+						merek
+						ORDER BY
+						nama
+						";
+						$rsMerek = $db->query($sqlMerek);
+						?>
+						<?php while ($rowMerek = $rsMerek->fetch_object()) { ?>
+							<option value="<?=$rowMerek->id?>"><?=$rowMerek->nama?></option>
+						<?php } ?>
 					</select>
 				<?php } ?>
 			</td>
