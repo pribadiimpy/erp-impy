@@ -1,5 +1,5 @@
 <?php
-$sql = "SELECT id, nama FROM pelanggan WHERE id = '{$id}'";
+$sql = "SELECT id, nama FROM pembeli WHERE id = '{$id}'";
 $rs = $db->query($sql);
 $nama = '';
 while ($row = $rs->fetch_object()) {
@@ -7,9 +7,9 @@ while ($row = $rs->fetch_object()) {
 	$nama = $row->nama;
 }
 ?>
-Form <?=ucfirst($action)?> Pelanggan
+Form <?=ucfirst($action)?> Pembeli
 <hr>
-<form action="pelanggan.php?controller=aksi" method="post">
+<form action="pembeli.php?controller=aksi" method="post">
 	<table>
 		<tr>
 			<td>Id</td>

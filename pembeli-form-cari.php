@@ -1,8 +1,8 @@
-<h2>Master Pelanggan</h2>
+<h2>Master Pembeli</h2>
 <hr>
-Pencarian Pelanggan
+Pencarian Pembeli
 <hr>
-<form action="pelanggan.php?controller=data" method="post">
+<form action="pembeli.php?controller=data" method="post">
 	<table>
 		<tr>
 			<td>Nama</td>

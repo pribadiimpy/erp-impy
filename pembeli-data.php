@@ -1,18 +1,18 @@
-Data Pelanggan
+Data Pembeli
 <hr>
-<form action="pelanggan.php?controller=form" method="post">
+<form action="pembeli.php?controller=form" method="post">
 	<table width="100%" border="1" cellpadding="3" cellspacing="0">
 		<tr>
 			<th width="1">Pilih</th>
 			<th width="1">Id</th>
-			<th>Pelanggan</th>
+			<th>Pembeli</th>
 		</tr>
 		<?php
 		$where = '';
 		if (!empty($nama)) {
 			$where = " AND nama LIKE '%{$nama}%'";
 		}
-		$sql = "SELECT id, nama FROM pelanggan WHERE 1 = 1 {$where}";
+		$sql = "SELECT id, nama FROM pembeli WHERE 1 = 1 {$where}";
 		$rs = $db->query($sql);
 		?>
 		<?php while ($row = $rs->fetch_object()) { ?>
@@ -27,10 +27,10 @@ Data Pelanggan
 	Aksi
 	<select name="action">
 		<option value="">-PILIH-</option>
-		<option value="tambah">Tambah Pelanggan</option>
-		<option value="salin">Salin Pelanggan</option>
-		<option value="ubah">Ubah Pelanggan</option>
-		<option value="hapus">Hapus Pelanggan</option>
+		<option value="tambah">Tambah Pembeli</option>
+		<option value="salin">Salin Pembeli</option>
+		<option value="ubah">Ubah Pembeli</option>
+		<option value="hapus">Hapus Pembeli</option>
 	</select>
 	<button type="submit" name="submit" value="pilih">Pilih</button>
 </form>
