@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 17, 2021 at 07:05 AM
+-- Generation Time: Jan 17, 2021 at 04:03 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -201,6 +201,17 @@ INSERT INTO `merek` (`id`, `nama`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `organisasi`
+--
+
+CREATE TABLE `organisasi` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `pegawai`
 --
 
@@ -367,6 +378,12 @@ ALTER TABLE `merek`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `organisasi`
+--
+ALTER TABLE `organisasi`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `pegawai`
 --
 ALTER TABLE `pegawai`
@@ -453,6 +470,12 @@ ALTER TABLE `lokasi`
 --
 ALTER TABLE `merek`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `organisasi`
+--
+ALTER TABLE `organisasi`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `pegawai`
