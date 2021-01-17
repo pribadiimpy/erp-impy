@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 17, 2021 at 02:59 AM
+-- Generation Time: Jan 17, 2021 at 03:20 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -28,12 +28,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `akun` (
-  `kode_akun` varchar(20) CHARACTER SET utf8 NOT NULL,
-  `kode_akun_induk` varchar(20) CHARACTER SET utf8 DEFAULT NULL,
-  `nama_akun` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `posisi_saldo` enum('D','K') CHARACTER SET utf8 DEFAULT NULL,
-  `posisi_laporan` enum('neraca','laba_rugi') CHARACTER SET utf8 DEFAULT NULL,
-  `hapus` enum('Y','T') CHARACTER SET utf8 DEFAULT NULL,
+  `kode_akun` varchar(20) NOT NULL,
+  `kode_akun_induk` varchar(20) DEFAULT NULL,
+  `nama_akun` varchar(255) DEFAULT NULL,
+  `posisi_saldo` enum('D','K','') DEFAULT NULL,
+  `posisi_laporan` enum('neraca','laba_rugi') DEFAULT NULL,
+  `hapus` enum('Y','T','') DEFAULT NULL,
   `dibuat_tgljam` datetime DEFAULT NULL,
   `dibuat_oleh` int(11) DEFAULT NULL,
   `dimodifikasi_tgljam` datetime DEFAULT NULL,
@@ -90,6 +90,44 @@ INSERT INTO `jasa` (`id`, `nama`) VALUES
 (1, 'Mencuci'),
 (2, 'Mengecat'),
 (3, 'Menyiram Tanaman');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jurnal_umum`
+--
+
+CREATE TABLE `jurnal_umum` (
+  `id` int(11) NOT NULL,
+  `tanggal` date NOT NULL,
+  `keterangan` text NOT NULL,
+  `hapus` enum('Y','T','') NOT NULL,
+  `posting` enum('Y','T','') NOT NULL,
+  `dibuat_tgljam` datetime NOT NULL,
+  `dibuat_oleh` int(11) NOT NULL,
+  `dimodifikasi_tgljam` datetime NOT NULL,
+  `dimodifikasi_oleh` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jurnal_umum_detail`
+--
+
+CREATE TABLE `jurnal_umum_detail` (
+  `id` int(11) NOT NULL,
+  `id_jurnal_umum` int(11) NOT NULL,
+  `kode_akun` varchar(20) NOT NULL,
+  `debit_kredit` enum('D','K','') NOT NULL,
+  `jumlah` decimal(30,2) NOT NULL,
+  `hapus` enum('Y','T','') NOT NULL,
+  `posting` enum('Y','T','') NOT NULL,
+  `dibuat_tgljam` datetime NOT NULL,
+  `dibuat_oleh` int(11) NOT NULL,
+  `dimodifikasi_tgljam` datetime NOT NULL,
+  `dimodifikasi_oleh` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -225,6 +263,31 @@ ALTER TABLE `jasa`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `jurnal_umum`
+--
+ALTER TABLE `jurnal_umum`
+  ADD PRIMARY KEY (`id`) USING BTREE,
+  ADD KEY `id` (`id`) USING BTREE,
+  ADD KEY `tanggal` (`tanggal`) USING BTREE;
+
+--
+-- Indexes for table `jurnal_umum_detail`
+--
+ALTER TABLE `jurnal_umum_detail`
+  ADD PRIMARY KEY (`id`) USING BTREE,
+  ADD KEY `id` (`id`) USING BTREE,
+  ADD KEY `id_jurnal_umum` (`id_jurnal_umum`) USING BTREE,
+  ADD KEY `kode_akun` (`kode_akun`) USING BTREE,
+  ADD KEY `debit_kredit` (`debit_kredit`) USING BTREE,
+  ADD KEY `jumlah` (`jumlah`) USING BTREE,
+  ADD KEY `hapus` (`hapus`) USING BTREE,
+  ADD KEY `dibuat_tgljam` (`dibuat_tgljam`) USING BTREE,
+  ADD KEY `dibuat_oleh` (`dibuat_oleh`) USING BTREE,
+  ADD KEY `dimodifikasi_tgljam` (`dimodifikasi_tgljam`) USING BTREE,
+  ADD KEY `dimodifikasi_oleh` (`dimodifikasi_oleh`) USING BTREE,
+  ADD KEY `posting` (`posting`) USING BTREE;
+
+--
 -- Indexes for table `kategori`
 --
 ALTER TABLE `kategori`
@@ -287,6 +350,18 @@ ALTER TABLE `gedung`
 --
 ALTER TABLE `jasa`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `jurnal_umum`
+--
+ALTER TABLE `jurnal_umum`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `jurnal_umum_detail`
+--
+ALTER TABLE `jurnal_umum_detail`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `kategori`
