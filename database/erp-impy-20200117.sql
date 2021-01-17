@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 17, 2021 at 02:24 AM
+-- Generation Time: Jan 17, 2021 at 02:59 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -20,6 +20,25 @@ SET time_zone = "+00:00";
 --
 -- Database: `erp-impy`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `akun`
+--
+
+CREATE TABLE `akun` (
+  `kode_akun` varchar(20) CHARACTER SET utf8 NOT NULL,
+  `kode_akun_induk` varchar(20) CHARACTER SET utf8 DEFAULT NULL,
+  `nama_akun` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `posisi_saldo` enum('D','K') CHARACTER SET utf8 DEFAULT NULL,
+  `posisi_laporan` enum('neraca','laba_rugi') CHARACTER SET utf8 DEFAULT NULL,
+  `hapus` enum('Y','T') CHARACTER SET utf8 DEFAULT NULL,
+  `dibuat_tgljam` datetime DEFAULT NULL,
+  `dibuat_oleh` int(11) DEFAULT NULL,
+  `dimodifikasi_tgljam` datetime DEFAULT NULL,
+  `dimodifikasi_oleh` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -175,6 +194,17 @@ CREATE TABLE `satuan` (
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `akun`
+--
+ALTER TABLE `akun`
+  ADD PRIMARY KEY (`kode_akun`) USING BTREE,
+  ADD KEY `kode_akun` (`kode_akun`) USING BTREE,
+  ADD KEY `kode_akun_induk` (`kode_akun_induk`) USING BTREE,
+  ADD KEY `nama_akun` (`nama_akun`) USING BTREE,
+  ADD KEY `posisi_saldo` (`posisi_saldo`) USING BTREE,
+  ADD KEY `posisi_laporan` (`posisi_laporan`) USING BTREE;
 
 --
 -- Indexes for table `barang`
