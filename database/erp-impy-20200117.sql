@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 17, 2021 at 03:29 AM
+-- Generation Time: Jan 17, 2021 at 07:05 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -48,17 +48,20 @@ CREATE TABLE `akun` (
 
 CREATE TABLE `barang` (
   `id` int(11) NOT NULL,
-  `nama` varchar(255) NOT NULL
+  `nama` varchar(255) NOT NULL,
+  `id_kategori` int(11) NOT NULL,
+  `id_satuan` int(11) NOT NULL,
+  `id_merek` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `barang`
 --
 
-INSERT INTO `barang` (`id`, `nama`) VALUES
-(1, 'baju'),
-(2, 'kemeja'),
-(3, 'jeans baru');
+INSERT INTO `barang` (`id`, `nama`, `id_kategori`, `id_satuan`, `id_merek`) VALUES
+(1, 'baju', 1, 2, 1),
+(2, 'kemeja', 1, 1, 1),
+(3, 'jeans baru', 1, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -140,6 +143,13 @@ CREATE TABLE `kategori` (
   `nama` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `kategori`
+--
+
+INSERT INTO `kategori` (`id`, `nama`) VALUES
+(1, 'Baju');
+
 -- --------------------------------------------------------
 
 --
@@ -180,6 +190,13 @@ CREATE TABLE `merek` (
   `id` int(11) NOT NULL,
   `nama` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `merek`
+--
+
+INSERT INTO `merek` (`id`, `nama`) VALUES
+(1, 'Nokia');
 
 -- --------------------------------------------------------
 
@@ -229,6 +246,14 @@ CREATE TABLE `penjual` (
   `nama` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `penjual`
+--
+
+INSERT INTO `penjual` (`id`, `nama`) VALUES
+(1, 'pt abc'),
+(2, 'pt abc 123');
+
 -- --------------------------------------------------------
 
 --
@@ -250,6 +275,14 @@ CREATE TABLE `satuan` (
   `id` int(11) NOT NULL,
   `nama` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `satuan`
+--
+
+INSERT INTO `satuan` (`id`, `nama`) VALUES
+(1, 'Pcs'),
+(2, 'Kilogram');
 
 --
 -- Indexes for dumped tables
@@ -401,7 +434,7 @@ ALTER TABLE `jurnal_umum_detail`
 -- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `lantai`
@@ -419,7 +452,7 @@ ALTER TABLE `lokasi`
 -- AUTO_INCREMENT for table `merek`
 --
 ALTER TABLE `merek`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `pegawai`
@@ -437,7 +470,7 @@ ALTER TABLE `pembeli`
 -- AUTO_INCREMENT for table `penjual`
 --
 ALTER TABLE `penjual`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `ruangan`
@@ -449,7 +482,7 @@ ALTER TABLE `ruangan`
 -- AUTO_INCREMENT for table `satuan`
 --
 ALTER TABLE `satuan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
