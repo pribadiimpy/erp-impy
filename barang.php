@@ -20,6 +20,9 @@ if ($controller == 'form') {
 } else if ($controller == 'aksi') {
 	$id = isset($_POST['id']) ? $_POST['id'] : '';
 	$nama = isset($_POST['nama']) ? $_POST['nama'] : '';
+	$id_kategori = isset($_POST['id_kategori']) ? $_POST['id_kategori'] : '';
+	$id_satuan = isset($_POST['id_satuan']) ? $_POST['id_satuan'] : '';
+	$id_merek = isset($_POST['id_merek']) ? $_POST['id_merek'] : '';
 	include 'barang-aksi.php';
 } else {
 	$nama = isset($_POST['nama']) ? $_POST['nama'] : '';

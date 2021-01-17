@@ -13,7 +13,18 @@ if ($submit == 'salin') {
 }
 
 if ($submit == 'ubah') {
-	$sql = "UPDATE barang SET nama = '{$nama}' WHERE id = '{$id}'";
+	$sql =
+	"
+	UPDATE
+	barang
+	SET
+	nama = '{$nama}',
+	id_kategori = '{$id_kategori}',
+	id_satuan = '{$id_satuan}',
+	id_merek = '{$id_merek}'
+	WHERE
+	id = '{$id}'
+	";
 	$rs = $db->query($sql);
 	header('location: barang.php');
 }
