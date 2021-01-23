@@ -1,2 +1,2 @@
 <hr>
-<p>Copyright &copy; Pribadi IMPY</p>
+<p>Copyright &copy; IMPY</p>
