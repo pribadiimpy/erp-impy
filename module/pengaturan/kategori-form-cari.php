@@ -2,7 +2,7 @@
 <hr>
 Pencarian Kategori
 <hr>
-<form action="gedung.php?controller=data" method="post">
+<form action="<?=index($mid)?>&controller=data" method="post">
 	<table>
 		<tr>
 			<td>Nama</td>

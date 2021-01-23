@@ -1,6 +1,6 @@
 Data Ruangan
 <hr>
-<form action="ruangan.php?controller=form" method="post">
+<form action="<?=index($mid)?>&controller=form" method="post">
 	<table width="100%" border="1" cellpadding="3" cellspacing="0">
 		<tr>
 			<th width="1">Pilih</th>

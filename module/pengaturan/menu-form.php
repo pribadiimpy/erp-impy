@@ -1,15 +1,19 @@
 <?php
-$sql="SELECT id,nama,module,posisi_menu,aktif FROM menu WHERE id = '{$id}'";
+$sql="SELECT id,menu_id,nama,module,posisi_menu,urutan,aktif FROM menu WHERE id = '{$id}'";
 $rs=$db->query($sql);
+$menu_id='';
 $nama='';
 $module='';
 $posisi_menu='';
+$urutan='';
 $aktif='';
 while ($row = $rs->fetch_object()) {
 	$id=$row->id;
+	$menu_id=$row->menu_id;
 	$nama=$row->nama;
 	$module=$row->module;
 	$posisi_menu=$row->posisi_menu;
+	$urutan=$row->urutan;
 	$aktif=$row->aktif;
 }
 ?>
@@ -43,9 +47,9 @@ Form <?=ucfirst($action)?> Menu
 			<td>
 				<?php if ($action=='hapus') { ?>
 					<?=$module?>
-					<input type="hidden" name="module" value="<?=$module?>">
+					<input type="hidden" name="menu_id" value="<?=$menu_id?>">
 				<?php } else { ?>
-					<input type="text" name="module" value="<?=$module?>">
+					<input type="text" name="menu_id" value="<?=$menu_id?>">
 				<?php } ?>
 			</td>
 		</tr>
@@ -81,6 +85,18 @@ Form <?=ucfirst($action)?> Menu
 							<?php } ?>
 						<?php } ?>
 					</select>
+				<?php } ?>
+			</td>
+		</tr>
+		<tr>
+			<td>Urutan</td>
+			<td>:</td>
+			<td>
+				<?php if ($action=='hapus') { ?>
+					<?=$module?>
+					<input type="hidden" name="urutan" value="<?=$urutan?>">
+				<?php } else { ?>
+					<input type="text" name="urutan" value="<?=$urutan?>">
 				<?php } ?>
 			</td>
 		</tr>

@@ -9,7 +9,7 @@ while ($row = $rs->fetch_object()) {
 ?>
 Form <?=ucfirst($action)?> Lokasi
 <hr>
-<form action="lokasi.php?controller=aksi" method="post">
+<form action="<?=index($mid)?>&controller=aksi" method="post">
 	<table>
 		<tr>
 			<td>Id</td>

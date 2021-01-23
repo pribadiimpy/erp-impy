@@ -2,7 +2,7 @@
 <hr>
 Pencarian Satuan
 <hr>
-<form action="satuan.php?controller=data" method="post">
+<form action="<?=index($mid)?>&controller=data" method="post">
 	<table>
 		<tr>
 			<td>Nama</td>

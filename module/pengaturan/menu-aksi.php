@@ -1,7 +1,7 @@
 <?php
 
 if ($submit == 'tambah') {
-	$sql = "INSERT INTO menu (id,nama,module,posisi_menu,aktif) VALUES (NULL,'{$nama}','{$module}','{$posisi_menu}','{$aktif}')";
+	$sql = "INSERT INTO menu (menu_id,nama,module,posisi_menu,urutan,aktif) VALUES ('{$menu_id}','{$nama}','{$module}','{$posisi_menu}','{$urutan}','{$aktif}')";
 	$rs = $db->query($sql);
 	header('location: '.index($mid));
 }
@@ -13,7 +13,7 @@ if ($submit == 'salin') {
 }
 
 if ($submit == 'ubah') {
-	$sql = "UPDATE menu SET nama='{$nama}',module='{$module}',posisi_menu='{$posisi_menu}',aktif='{$aktif}' WHERE id = '{$id}'";
+	$sql = "UPDATE menu SET menu_id='{$menu_id}',nama='{$nama}',module='{$module}',posisi_menu='{$posisi_menu}',urutan='{$urutan}',aktif='{$aktif}' WHERE id = '{$id}'";
 	$rs = $db->query($sql);
 	header('location: '.index($mid));
 }

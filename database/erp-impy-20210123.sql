@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 23, 2021 at 03:17 AM
+-- Generation Time: Jan 23, 2021 at 04:01 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -195,6 +195,7 @@ CREATE TABLE `menu` (
   `nama` varchar(255) NOT NULL,
   `module` varchar(255) NOT NULL,
   `posisi_menu` enum('menu_utama_atas','menu_utama_kiri','menu_utama_kanan','menu_utama_bawah','menu_isi_atas','menu_isi_kiri','menu_isi_kanan','menu_isi_bawah') NOT NULL DEFAULT 'menu_utama_atas',
+  `urutan` int(11) NOT NULL,
   `aktif` enum('Y','T') NOT NULL DEFAULT 'Y'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -202,12 +203,15 @@ CREATE TABLE `menu` (
 -- Dumping data for table `menu`
 --
 
-INSERT INTO `menu` (`id`, `menu_id`, `nama`, `module`, `posisi_menu`, `aktif`) VALUES
-(1, 0, 'Menu', 'pengaturan/menu.php', 'menu_utama_atas', 'Y'),
-(2, 0, 'Barang', 'barang/barang.php', 'menu_utama_atas', 'Y'),
-(3, 0, 'Jasa', 'jasa/jasa.php', 'menu_utama_atas', 'Y'),
-(4, 0, 'Pembeli', 'pembeli/pembeli.php', 'menu_utama_atas', 'Y'),
-(5, 0, 'Penjual', 'penjual/penjual.php', 'menu_utama_atas', 'Y');
+INSERT INTO `menu` (`id`, `menu_id`, `nama`, `module`, `posisi_menu`, `urutan`, `aktif`) VALUES
+(1, 6, 'Menu', 'pengaturan/menu.php', 'menu_utama_kiri', 0, 'Y'),
+(2, 0, 'Barang', 'barang/barang.php', 'menu_utama_atas', 0, 'Y'),
+(3, 0, 'Jasa', 'jasa/jasa.php', 'menu_utama_atas', 0, 'Y'),
+(4, 0, 'Pembeli', 'pembeli/pembeli.php', 'menu_utama_atas', 0, 'Y'),
+(5, 0, 'Penjual', 'penjual/penjual.php', 'menu_utama_atas', 0, 'Y'),
+(6, 0, 'Pengaturan', '', 'menu_utama_atas', 0, 'Y'),
+(7, 0, 'Pemetaan', '', 'menu_utama_atas', 0, 'Y'),
+(8, 6, 'Organisasi', 'pengaturan/organisasi.php', 'menu_utama_kiri', 0, 'Y');
 
 -- --------------------------------------------------------
 
@@ -516,7 +520,7 @@ ALTER TABLE `lokasi`
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `merek`

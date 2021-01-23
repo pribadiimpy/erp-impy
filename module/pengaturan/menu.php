@@ -15,9 +15,11 @@ if ($controller=='form') {
 	}
 } else if ($controller == 'aksi') {
 	$id = isset($_POST['id']) ? $_POST['id'] : '';
+	$menu_id = isset($_POST['menu_id']) ? $_POST['menu_id'] : '';
 	$nama = isset($_POST['nama']) ? $_POST['nama'] : '';
 	$module = isset($_POST['module']) ? $_POST['module'] : '';
 	$posisi_menu = isset($_POST['posisi_menu']) ? $_POST['posisi_menu'] : '';
+	$urutan = isset($_POST['urutan']) ? $_POST['urutan'] : '';
 	$aktif = isset($_POST['aktif']) ? $_POST['aktif'] : '';
 	include('menu-aksi.php');
 } else {
