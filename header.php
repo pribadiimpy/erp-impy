@@ -1,2 +1,2 @@
-<h1>erp-impy</h1>
+<h1><a href="index.php">erp-impy</a></h1>
 <hr>
