@@ -57,7 +57,18 @@ Form <?=ucfirst($action)?> Menu
 					<?=$posisi_menu?>
 					<input type="hidden" name="posisi_menu" value="<?=$posisi_menu?>">
 				<?php } else { ?>
-					<input type="text" name="posisi_menu" value="<?=$posisi_menu?>">
+					<select name="posisi_menu">
+						<option value="">-PILIH-</option>
+						<?php
+						$sql="SELECT COLUMN_TYPE FROM information_schema.COLUMNS WHERE TABLE_SCHEMA='erp-impy' AND TABLE_NAME='menu' AND COLUMN_NAME='posisi_menu'";
+						$rs=$db->query($sql);
+						?>
+						<?php while ($row = $rs->fetch_object()) { ?>
+							<?php foreach(explode("','",substr($row->COLUMN_TYPE,6,-2)) as $option) { ?>
+								<option value="<?=$option?>" <?=$option==$posisi_menu?'selected':''?>><?=$option?></option>
+							<?php } ?>
+						<?php } ?>
+					</select>
 				<?php } ?>
 			</td>
 		</tr>
@@ -69,7 +80,18 @@ Form <?=ucfirst($action)?> Menu
 					<?=$aktif?>
 					<input type="hidden" name="aktif" value="<?=$aktif?>">
 				<?php } else { ?>
-					<input type="text" name="aktif" value="<?=$aktif?>">
+					<select name="aktif">
+						<option value="">-PILIH-</option>
+						<?php
+						$sql="SELECT COLUMN_TYPE FROM information_schema.COLUMNS WHERE TABLE_SCHEMA='erp-impy' AND TABLE_NAME='menu' AND COLUMN_NAME='aktif'";
+						$rs=$db->query($sql);
+						?>
+						<?php while ($row = $rs->fetch_object()) { ?>
+							<?php foreach(explode("','",substr($row->COLUMN_TYPE,6,-2)) as $option) { ?>
+								<option value="<?=$option?>" <?=$option==$aktif?'selected':''?>><?=$option?></option>
+							<?php } ?>
+						<?php } ?>
+					</select>
 				<?php } ?>
 			</td>
 		</tr>
