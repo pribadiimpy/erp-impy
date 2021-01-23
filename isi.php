@@ -1,7 +1,7 @@
 <?php
-$sql="SELECT module FROM menu WHERE id='{$mid}' AND aktif='Y'";
-$rs=$db->query($sql);
+$sqlModule="SELECT module FROM menu WHERE id='{$mid}' AND aktif='Y'";
+$rsModule=$db->query($sqlModule);
 ?>
-<?php while ($row=$rs->fetch_object()) { ?>
-    <?php include FOLDER_MODULE.'/'.$row->module ?>
+<?php while ($rowModule=$rsModule->fetch_object()) { ?>
+    <?php include FOLDER_MODULE.'/'.$rowModule->module ?>
 <?php } ?>

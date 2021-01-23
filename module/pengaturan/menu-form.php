@@ -42,7 +42,7 @@ Form <?=ucfirst($action)?> Menu
 			<td>:</td>
 			<td>
 				<?php if ($action=='hapus') { ?>
-					<?=$nama?>
+					<?=$module?>
 					<input type="hidden" name="module" value="<?=$module?>">
 				<?php } else { ?>
 					<input type="text" name="module" value="<?=$module?>">
@@ -54,7 +54,7 @@ Form <?=ucfirst($action)?> Menu
 			<td>:</td>
 			<td>
 				<?php if ($action=='hapus') { ?>
-					<?=$nama?>
+					<?=$posisi_menu?>
 					<input type="hidden" name="posisi_menu" value="<?=$posisi_menu?>">
 				<?php } else { ?>
 					<input type="text" name="posisi_menu" value="<?=$posisi_menu?>">
@@ -67,9 +67,9 @@ Form <?=ucfirst($action)?> Menu
 			<td>
 				<?php if ($action=='hapus') { ?>
 					<?=$aktif?>
-					<input type="hidden" name="nama" value="<?=$aktif?>">
+					<input type="hidden" name="aktif" value="<?=$aktif?>">
 				<?php } else { ?>
-					<input type="text" name="nama" value="<?=$aktif?>">
+					<input type="text" name="aktif" value="<?=$aktif?>">
 				<?php } ?>
 			</td>
 		</tr>

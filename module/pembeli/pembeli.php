@@ -1,21 +1,17 @@
 <?php
 
-require 'db.php';
-
-$controller = isset($_REQUEST['controller']) ? $_REQUEST['controller'] : '';
-$action = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
-$submit = isset($_REQUEST['submit']) ? $_REQUEST['submit'] : '';
-
-include 'menu_atas.php';
-
 if ($controller == 'form') {
-	$id = isset($_POST['id']) ? $_POST['id'] : '';
+	if ($action=='tambah') {
+		$id=0;
+	} else {
+		$id=isset($_POST['id']) ? $_POST['id'] : '';
+	}
 	if ($id > 0 && in_array($action, array('salin', 'ubah', 'hapus'))) {
 		include 'pembeli-form.php';
 	} else if (in_array($action, array('tambah'))) {
 		include 'pembeli-form.php';
 	} else {
-		header('location: pembeli.php');
+		header('location: '.index($mid));
 	}
 } else if ($controller == 'aksi') {
 	$id = isset($_POST['id']) ? $_POST['id'] : '';

@@ -2,7 +2,7 @@
 <hr>
 Pencarian Jasa
 <hr>
-<form action="jasa.php?controller=data" method="post">
+<form action="<?=index($mid)?>&controller=data" method="post">
 	<table>
 		<tr>
 			<td>Nama</td>

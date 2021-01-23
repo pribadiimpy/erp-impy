@@ -9,7 +9,7 @@ while ($row = $rs->fetch_object()) {
 ?>
 Form <?=ucfirst($action)?> Jasa
 <hr>
-<form action="jasa.php?controller=aksi" method="post">
+<form action="<?=index($mid)?>&controller=aksi" method="post">
 	<table>
 		<tr>
 			<td>Id</td>
@@ -36,6 +36,6 @@ Form <?=ucfirst($action)?> Jasa
 			<td></td>
 			<td><button type="submit" name="submit" value="<?=$action?>"><?=ucfirst($action)?></button></td>
 		</tr>
-	</table>	
+	</table>
 </form>
 <hr>
