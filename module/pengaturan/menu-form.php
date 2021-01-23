@@ -1,10 +1,16 @@
 <?php
-$sql = "SELECT id, nama FROM menu WHERE id = '{$id}'";
-$rs = $db->query($sql);
-$nama = '';
+$sql="SELECT id,nama,module,posisi_menu,aktif FROM menu WHERE id = '{$id}'";
+$rs=$db->query($sql);
+$nama='';
+$module='';
+$posisi_menu='';
+$aktif='';
 while ($row = $rs->fetch_object()) {
-	$id = $row->id;
-	$nama = $row->nama;
+	$id=$row->id;
+	$nama=$row->nama;
+	$module=$row->module;
+	$posisi_menu=$row->posisi_menu;
+	$aktif=$row->aktif;
 }
 ?>
 Form <?=ucfirst($action)?> Menu
@@ -23,11 +29,47 @@ Form <?=ucfirst($action)?> Menu
 			<td>Nama</td>
 			<td>:</td>
 			<td>
-				<?php if ($action == 'hapus') { ?>
+				<?php if ($action=='hapus') { ?>
 					<?=$nama?>
 					<input type="hidden" name="nama" value="<?=$nama?>">
 				<?php } else { ?>
 					<input type="text" name="nama" value="<?=$nama?>">
+				<?php } ?>
+			</td>
+		</tr>
+		<tr>
+			<td>Module</td>
+			<td>:</td>
+			<td>
+				<?php if ($action=='hapus') { ?>
+					<?=$nama?>
+					<input type="hidden" name="module" value="<?=$module?>">
+				<?php } else { ?>
+					<input type="text" name="module" value="<?=$module?>">
+				<?php } ?>
+			</td>
+		</tr>
+		<tr>
+			<td>Posisi Menu</td>
+			<td>:</td>
+			<td>
+				<?php if ($action=='hapus') { ?>
+					<?=$nama?>
+					<input type="hidden" name="posisi_menu" value="<?=$posisi_menu?>">
+				<?php } else { ?>
+					<input type="text" name="posisi_menu" value="<?=$posisi_menu?>">
+				<?php } ?>
+			</td>
+		</tr>
+		<tr>
+			<td>Aktif</td>
+			<td>:</td>
+			<td>
+				<?php if ($action=='hapus') { ?>
+					<?=$aktif?>
+					<input type="hidden" name="nama" value="<?=$aktif?>">
+				<?php } else { ?>
+					<input type="text" name="nama" value="<?=$aktif?>">
 				<?php } ?>
 			</td>
 		</tr>
