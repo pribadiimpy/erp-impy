@@ -1,4 +1,5 @@
 <?php
+
 ini_set('display_errors',1);
 define('FOLDER_ROOT',__DIR__);
 define('FOLDER_CONFIG',FOLDER_ROOT.'/config');
