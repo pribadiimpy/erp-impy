@@ -38,6 +38,18 @@ Form <?=ucfirst($action)?> Menu
 			</td>
 		</tr>
 		<tr>
+			<td>Menu Induk</td>
+			<td>:</td>
+			<td>
+				<?php if ($action=='hapus') { ?>
+					<?=$module?>
+					<input type="hidden" name="module" value="<?=$module?>">
+				<?php } else { ?>
+					<input type="text" name="module" value="<?=$module?>">
+				<?php } ?>
+			</td>
+		</tr>
+		<tr>
 			<td>Module</td>
 			<td>:</td>
 			<td>
