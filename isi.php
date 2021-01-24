@@ -6,17 +6,18 @@
         <td colspan="3"><?php include 'menu_isi_atas.php'; ?></td>
     </tr>
     <tr valign="top">
-        <td width="10%"><?php include 'menu_isi_kiri.php'; ?></td>
-        <td width="100%">
+        <?php include 'menu_isi_kiri.php'; ?>
+        <td>
             <?php
             $sqlModule=
             "
             SELECT
+            id,
             module
             FROM menu
             WHERE
-            (id='{$midua}' OR id='{$miduki}' OR id='{$midia}')
-            AND module > ''
+            id='{$mid}'
+            AND module>''
             AND aktif='Y'
             ";
             $rsModule=$db->query($sqlModule);
@@ -24,11 +25,12 @@
             <?php while ($rowModule=$rsModule->fetch_object()) { ?>
                 <?php $module = FOLDER_MODULE.'/'.$rowModule->module; ?>
                 <?php if (file_exists($module)) { ?>
+                    <?php $mid=$rowModule->id ?>
                     <?php include($module) ?>
                 <?php } ?>
             <?php } ?>
         </td>
-        <td width="10%"><?php include 'menu_isi_kanan.php'; ?></td>
+        <?php include 'menu_isi_kanan.php'; ?>
     </tr>
     <tr valign="top">
         <td colspan="3"><?php include 'menu_isi_bawah.php'; ?></td>
