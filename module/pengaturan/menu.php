@@ -1,5 +1,24 @@
 <?php
 
+function getModule($dir, $selected) {
+    $files=scandir($dir);
+    foreach($files as $key=>$value){
+        $path=realpath($dir.DIRECTORY_SEPARATOR.$value);
+        if(!is_dir($path)){
+			$tmp_path = str_replace(FOLDER_MODULE.DIRECTORY_SEPARATOR,'',$path);
+            $tmp_path = str_replace(DIRECTORY_SEPARATOR,'/',$tmp_path);
+            if ($tmp_path == $selected) {
+                $is_selected = 'selected';
+            } else {
+                $is_selected = '';
+            }
+			echo "<option value=\"{$tmp_path}\" {$is_selected}>{$tmp_path}</option>\r\n";
+        } else if($value!='.' && $value!='..'){
+            getModule($path,$selected);
+        }
+    }
+}
+
 if ($controller=='form') {
 	if ($action=='tambah') {
 		$id=0;

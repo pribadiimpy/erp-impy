@@ -61,7 +61,10 @@ Form <?=ucfirst($action)?> Menu
 					<?=$module?>
 					<input type="hidden" name="module" value="<?=$module?>">
 				<?php } else { ?>
-					<input type="text" name="module" value="<?=$module?>">
+					<select name="module">
+						<option value="">-PILIH-</option>
+						<?php getModule(FOLDER_MODULE, $module); ?>
+					</select>
 				<?php } ?>
 			</td>
 		</tr>

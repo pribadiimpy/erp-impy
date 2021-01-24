@@ -15,7 +15,7 @@ Data Menu
 		if (!empty($nama)) {
 			$where=" AND nama LIKE '%{$nama}%' ";
 		}
-		$sql="SELECT id,nama,module,posisi_menu,aktif FROM menu WHERE 1=1 {$where}";
+		$sql="SELECT id,nama,module,posisi_menu,aktif FROM menu WHERE 1=1 {$where} ORDER BY menu_id,urutan,nama";
 		$rs= $db->query($sql);
 		?>
 		<?php while ($row=$rs->fetch_object()) { ?>
